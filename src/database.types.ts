@@ -9,38 +9,38 @@ export type Json =
 export interface Database {
   public: {
     Tables: {
-      Date: {
+      daily_habits: {
         Row: {
-          Date: string | null;
+          date: string;
+          habit_id: number;
           id: number;
+          status: boolean;
         };
         Insert: {
-          Date?: string | null;
+          date: string;
+          habit_id: number;
           id?: number;
+          status?: boolean;
         };
         Update: {
-          Date?: string | null;
+          date?: string;
+          habit_id?: number;
           id?: number;
+          status?: boolean;
         };
       };
-      Habits: {
+      habits: {
         Row: {
-          complete: boolean | null;
-          date_foreign_key: number | null;
           id: number;
-          title: string | null;
+          name: string;
         };
         Insert: {
-          complete?: boolean | null;
-          date_foreign_key?: number | null;
           id?: number;
-          title?: string | null;
+          name: string;
         };
         Update: {
-          complete?: boolean | null;
-          date_foreign_key?: number | null;
           id?: number;
-          title?: string | null;
+          name?: string;
         };
       };
     };
@@ -48,7 +48,16 @@ export interface Database {
       [_ in never]: never;
     };
     Functions: {
-      [_ in never]: never;
+      fetch_daily_habits: {
+        Args: Record<PropertyKey, never>;
+        Returns: {
+          id: number;
+          habit_id: number;
+          date: string;
+          status: boolean;
+          habit_name: string;
+        }[];
+      };
     };
     Enums: {
       [_ in never]: never;

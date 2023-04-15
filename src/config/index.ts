@@ -10,9 +10,9 @@ export const supabase = createClient<Database>(
   VITE_PUBLIC_ANON_KEY
 );
 
-export type Dates = Database["public"]["Tables"]["Date"]["Row"][];
-export type Habit = Database["public"]["Tables"]["Habits"]["Row"];
-export type Habits = Database["public"]["Tables"]["Habits"]["Row"][];
+export type DailyHabits = Database["public"]["Tables"]["daily_habits"]["Row"][];
+export type Habit = Database["public"]["Tables"]["habits"]["Row"];
+export type Habits = Database["public"]["Tables"]["habits"]["Row"][];
 
 export const queryClient = new QueryClient({
   defaultOptions: {
